@@ -21,17 +21,16 @@ import org.xron.io.FileDownloader;
  */
 public class Village {
 
-
 //    $id, $name, $x, $y, $player, $points, $rank
     int id;
     String name;
-    short x;
-    short y;
+    int x;
+    int y;
     int player;
     int points;
     int rank;
 
-    public Village(int id, String name, short x, short y, int player, int points, int rank) {
+    public Village(int id, String name, int x, int y, int player, int points, int rank) {
         this.id = id;
         this.name = name;
         this.x = x;
@@ -40,8 +39,6 @@ public class Village {
         this.points = points;
         this.rank = rank;
     }
-
-
 
     ////////
     public static void refreshVillageData() throws MalformedURLException {
@@ -65,19 +62,19 @@ public class Village {
         String line = fin.readLine();
         System.out.println("Starting Parse");
         long lineCount = 0;
-        while(line != null){
+        while (line != null) {
             String[] split = line.split(",");
             Village v = new Village(
                     Integer.valueOf(split[0]),
                     URLDecoder.decode(split[1], "UTF-8"),
-                    Short.valueOf(split[2]),
-                    Short.valueOf(split[3]),
+                    Integer.valueOf(split[2]),
+                    Integer.valueOf(split[3]),
                     Integer.valueOf(split[4]),
                     Integer.valueOf(split[5]),
                     Integer.valueOf(split[6]));
             villages.add(v);
             lineCount++;
-            if(lineCount%50 == 0) {
+            if (lineCount % 50 == 0) {
                 System.out.println(lineCount);
             }
             line = fin.readLine();
@@ -87,5 +84,12 @@ public class Village {
         fin.close();
 
         return villages.toArray(new Village[villages.size()]);
+    }
+
+    public int getK() {
+        return (x / 100) + ((y / 100) * 10);
+    }
+
+    public int distanceTo(Village that) {
     }
 }
