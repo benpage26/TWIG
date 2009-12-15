@@ -5,6 +5,8 @@
 
 package twig;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 /**
@@ -16,10 +18,13 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws MalformedURLException, FileNotFoundException, IOException {
         // TODO code application logic here
 
-        Village.refreshVillageData();
+//        Village.refreshVillageData();
+        
+        Village.getAllVillages();
+
     }
 
 }
