@@ -24,11 +24,11 @@ public class Village {
 //    $id, $name, $x, $y, $player, $points, $rank
     int id;
     String name;
-    int x;
-    int y;
-    int player;
-    int points;
-    int rank;
+    private int x;
+    private int y;
+    private int player;
+    private int points;
+    private int rank;
 
     public Village(int id, String name, int x, int y, int player, int points, int rank) {
         this.id = id;
@@ -87,10 +87,45 @@ public class Village {
     }
 
     public int getK() {
-        return (x / 100) + ((y / 100) * 10);
+        return (getX() / 100) + ((getY() / 100) * 10);
     }
 
     public double distanceTo(Village that) {
-        return Math.hypot(this.x-that.x, this.y-that.y);
+        return Math.hypot(this.getX()-that.getX(), this.getY()-that.getY());
+    }
+
+    /**
+     * @return the x
+     */
+    public int getX() {
+        return x;
+    }
+
+    /**
+     * @return the y
+     */
+    public int getY() {
+        return y;
+    }
+
+    /**
+     * @return the player
+     */
+    public int getPlayer() {
+        return player;
+    }
+
+    /**
+     * @return the points
+     */
+    public int getPoints() {
+        return points;
+    }
+
+    /**
+     * @return the rank
+     */
+    public int getRank() {
+        return rank;
     }
 }
