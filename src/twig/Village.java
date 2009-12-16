@@ -90,6 +90,7 @@ public class Village {
         return (x / 100) + ((y / 100) * 10);
     }
 
-    public int distanceTo(Village that) {
+    public double distanceTo(Village that) {
+        return Math.hypot(this.x-that.x, this.y-that.y);
     }
 }
