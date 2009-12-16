@@ -65,8 +65,8 @@ public class VillageTest {
      * Test of getK method, of class Village.
      */
     @Test
-    public void testGetK() {
-        System.out.println("getK");
+    public void testGetK1() {
+        System.out.println("getK1");
         short x = 967;
         short y = 403;
         Village instance = new Village(0, "name", x, y, 0, 0, 0);
@@ -78,13 +78,33 @@ public class VillageTest {
 
     @Test
     public void testGetK2() {
-        System.out.println("getK");
+        System.out.println("getK2");
         short x = 890;
         short y = 362;
         Village instance = new Village(0, "name", x, y, 0, 0, 0);
         int expResult = 38;
         int result = instance.getK();
         assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testDistanceTo1(){
+       double actual = getExronia().distanceTo(getDrolaga());
+       double expected = 4.1;
+       assertEquals(expected, actual, 0.001);
+       actual = getDrolaga().distanceTo(getExronia());
+       assertEquals(expected, actual, 0.001);
+    }
+
+
+
+
+    private Village getExronia(){
+        return new Village(0, "Exronia",967,403,0,0,0);
+    }
+
+    private Village getDrolaga(){
+        return new Village(0, "Drolaga",963,404,0,0,0);
     }
 
 }
